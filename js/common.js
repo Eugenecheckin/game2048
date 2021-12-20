@@ -16,6 +16,14 @@
     	}
   	}
 });
+	window.StrCollapseButton = (function(arr, direct){
+		if (direct){
+			return arr.reduce(()=>{
+			})
+		}
+		else{}			
+	});
+
 
 
 })(window);
