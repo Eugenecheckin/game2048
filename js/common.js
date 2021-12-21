@@ -86,14 +86,84 @@
 					arr[i][3] = arr_sort_3[i];
 				}		
 			}
-			case "bottom":{}
-			case "right" :{}
-			case "left" :{}
+			case "bottom":{
+				let arr_0 =[];
+				let arr_1 =[];
+				let arr_2 =[];
+				let arr_3 =[];
+				for( let i=0; i<4;i++){
+					arr_0.push(arr[i][0]);
+					arr_1.push(arr[i][1]);
+					arr_2.push(arr[i][2]);
+					arr_3.push(arr[i][3]);
+				}
+				let arr_sort_0 = window.GetMoveStr(arr_0);
+				let arr_sort_1 = window.GetMoveStr(arr_1);
+				let arr_sort_2 = window.GetMoveStr(arr_2);
+				let arr_sort_3 = window.GetMoveStr(arr_3);
+				let k = 3;	
+				for(let i=0; i<4; i++)
+				{
+					arr[i][0] = arr_sort_0[k];
+					arr[i][1] = arr_sort_1[k];
+					arr[i][2] = arr_sort_2[k];
+					arr[i][3] = arr_sort_3[k];
+					k--;
+				}		
+			}			
+			case "right" :{
+				let arr_0 =[];
+				let arr_1 =[];
+				let arr_2 =[];
+				let arr_3 =[];
+				for( let i=0; i<4;i++){
+					arr_0.push(arr[0][i]);
+					arr_1.push(arr[1][i]);
+					arr_2.push(arr[2][i]);
+					arr_3.push(arr[3][i]);
+				}
+				let arr_sort_0 = window.GetMoveStr(arr_0);
+				let arr_sort_1 = window.GetMoveStr(arr_1);
+				let arr_sort_2 = window.GetMoveStr(arr_2);
+				let arr_sort_3 = window.GetMoveStr(arr_3);	
+				for(let i=0; i<4; i++)
+				{
+					arr[0][i] = arr_sort_0[i];
+					arr[1][i] = arr_sort_1[i];
+					arr[2][i] = arr_sort_2[i];
+					arr[3][i] = arr_sort_3[i];
+				}		
+			}
+			case "left" :{
+				let arr_0 =[];
+				let arr_1 =[];
+				let arr_2 =[];
+				let arr_3 =[];
+				for( let i=0; i<4;i++){
+					arr_0.push(arr[0][i]);
+					arr_1.push(arr[1][i]);
+					arr_2.push(arr[2][i]);
+					arr_3.push(arr[3][i]);
+				}
+				let arr_sort_0 = window.GetMoveStr(arr_0);
+				let arr_sort_1 = window.GetMoveStr(arr_1);
+				let arr_sort_2 = window.GetMoveStr(arr_2);
+				let arr_sort_3 = window.GetMoveStr(arr_3);	
+				let k = 3;
+				for(let i=0; i<4; i++)
+				{
+					arr[0][i] = arr_sort_0[k];
+					arr[1][i] = arr_sort_1[k];
+					arr[2][i] = arr_sort_2[k];
+					arr[3][i] = arr_sort_3[k];
+					k--;
+				}		
+			}
 		}		
 	};
 	window.TestMass = window.GetNewMass();
-	window.TestUpdateMass = function (){
-				window.UpdateMass(window.TestMass, "top")
-			};
+	window.TestUpdateMass = function (direction){
+	window.UpdateMass(window.TestMass, direction)
+	};
 	
 })(window);
