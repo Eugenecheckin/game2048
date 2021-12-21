@@ -36,7 +36,7 @@
 		}
 		let i = this.GetRandomInt(1,5);
 		let k = this.GetRandomInt(1,5);
-		arr[i,k]= this.GetRandomNxtNumber();
+		arr[i][k]= this.GetRandomNxtNumber();
 		return arr;
 	};
 
