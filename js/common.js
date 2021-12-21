@@ -84,7 +84,8 @@
 					arr[i][1] = arr_sort_1[i];
 					arr[i][2] = arr_sort_2[i];
 					arr[i][3] = arr_sort_3[i];
-				}		
+				}
+				return arr;		
 			}
 			case "bottom":{
 				let arr_0 =[];
@@ -109,7 +110,8 @@
 					arr[i][2] = arr_sort_2[k];
 					arr[i][3] = arr_sort_3[k];
 					k--;
-				}		
+				}
+				return arr;			
 			}			
 			case "right" :{
 				let arr_0 =[];
@@ -132,7 +134,8 @@
 					arr[1][i] = arr_sort_1[i];
 					arr[2][i] = arr_sort_2[i];
 					arr[3][i] = arr_sort_3[i];
-				}		
+				}
+				return arr;			
 			}
 			case "left" :{
 				let arr_0 =[];
@@ -157,13 +160,33 @@
 					arr[2][i] = arr_sort_2[k];
 					arr[3][i] = arr_sort_3[k];
 					k--;
-				}		
+				}
+				return arr;			
 			}
 		}		
 	};
+	window.AddNumbMass = function (arr) {
+		let lstIndZero = [];
+		for(let i = 0; i<4; i++){
+			for(let k = 0; k<4; k++){
+				if(arr[i][k]==0){
+					lstIndZero.push("{i}|{k}");
+				}
+			}
+		}
+		if (lstIndZero.length==0) return arr;
+		let rnd = window.GetRandomInt(0,lstIndZero.length);
+		let newI = lstIndZero[rnd][0];
+		let newK = lstIndZero[rnd][2];
+		arr[newI,newK] = window.GetRandomNxtNumber();
+		return arr;
+
+	};
+
 	window.TestMass = window.GetNewMass();
 	window.TestUpdateMass = function (direction){
-	window.UpdateMass(window.TestMass, direction)
+	let updMass = window.UpdateMass(window.TestMass, direction);
+	return window.AddNumbMass(updMass);
 	};
 	
 })(window);
