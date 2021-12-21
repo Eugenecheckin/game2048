@@ -1,6 +1,5 @@
-(function(window){
-	
-	window.getNxtNumber = (function(){
+(function(window){	
+	window.GetRandomNxtNumber = function(){
   	var arr = [ 
   	{ 
     	title: "2",
@@ -16,9 +15,33 @@
       	break;
     	}
   	}
-	});
+	};
+	window.GetRandomInt = function (min, max) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min)) + min; 
+	};
+	window.GetNewMass = function () {	
+		let arr = new Array(4);
+    for(let i=0;i<4;i++)
+    {
+        arr[i] = new Array(4);        
+    }
+		for(let i=0;i<4;i++)
+    {
+			for(let k=0;k<4;k++)
+    	{
+				arr[i,k]="0";
+			}
+		}
+		let i = this.GetRandomInt(1,5);
+		let k = this.GetRandomInt(1,5);
+		arr[i,k]= this.GetRandomNxtNumber();
+		return arr;
+	};
+
 	/*["0","0","1","1","0","1"]*/
-	window.getMoveStr = function(arr_str){
+	window.GetMoveStr = function(arr_str){
 		let preRes = [];
 		arr_str.forEach((element, i, arr) => {
 			if (element!=0){
@@ -37,5 +60,22 @@
 		res.unshift("0");
 		}
 	return res;
-	}
+	};
+	
+	
+	window.UpdateMass = function (arr,direction) {
+		switch(direction){
+			case "top":{
+
+				for( let i=0; i<4;i++){
+
+
+				}
+			}
+			case "bottom":{}
+			case "right" :{}
+			case "left" :{}
+		}
+		
+	};
 })(window);
