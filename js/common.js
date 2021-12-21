@@ -31,7 +31,7 @@
     {
 			for(let k=0;k<4;k++)
     	{
-				arr[i,k]="0";
+				arr[i][k]="0";
 			}
 		}
 		let i = this.GetRandomInt(1,5);
