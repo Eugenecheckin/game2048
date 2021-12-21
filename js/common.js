@@ -34,8 +34,8 @@
 				arr[i][k]="0";
 			}
 		}
-		let i = this.GetRandomInt(1,5);
-		let k = this.GetRandomInt(1,5);
+		let i = this.GetRandomInt(0,4);
+		let k = this.GetRandomInt(0,4);
 		arr[i][k]= this.GetRandomNxtNumber();
 		return arr;
 	};
@@ -68,7 +68,6 @@
 			case "top":{
 
 				for( let i=0; i<4;i++){
-
 
 				}
 			}
