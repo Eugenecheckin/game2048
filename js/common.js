@@ -59,22 +59,41 @@
 		while(res.length<4){
 		res.unshift("0");
 		}
-	return res;
-	};
-	
-	
+		return res;
+	};	
 	window.UpdateMass = function (arr,direction) {
 		switch(direction){
 			case "top":{
-
+				let arr_0 =[];
+				let arr_1 =[];
+				let arr_2 =[];
+				let arr_3 =[];
 				for( let i=0; i<4;i++){
-
+					arr_0.push(arr[i][0]);
+					arr_1.push(arr[i][1]);
+					arr_2.push(arr[i][2]);
+					arr_3.push(arr[i][3]);
 				}
+				let arr_sort_0 = window.GetMoveStr(arr_0);
+				let arr_sort_1 = window.GetMoveStr(arr_1);
+				let arr_sort_2 = window.GetMoveStr(arr_2);
+				let arr_sort_3 = window.GetMoveStr(arr_3);	
+				for(let i=0; i<4; i++)
+				{
+					arr[i][0] = arr_sort_0[i];
+					arr[i][1] = arr_sort_1[i];
+					arr[i][2] = arr_sort_2[i];
+					arr[i][3] = arr_sort_3[i];
+				}		
 			}
 			case "bottom":{}
 			case "right" :{}
 			case "left" :{}
-		}
-		
+		}		
 	};
+	window.TestMass = window.GetNewMass();
+	window.TestUpdateMass = function (){
+				window.UpdateMass(window.TestMass, "top")
+			};
+	
 })(window);
