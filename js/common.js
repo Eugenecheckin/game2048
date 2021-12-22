@@ -170,7 +170,7 @@
 		for(let i = 0; i<4; i++){
 			for(let k = 0; k<4; k++){
 				if(arr[i][k]==0){
-					lstIndZero.push("{i}|{k}");
+					lstIndZero.push(`${i}|${k}`);
 				}
 			}
 		}
@@ -183,10 +183,10 @@
 
 	};
 
-	window.TestMass = window.GetNewMass();
-	window.TestUpdateMass = function (direction){
-	let updMass = window.UpdateMass(window.TestMass, direction);
-	return window.AddNumbMass(updMass);
-	};
+	window.InitMass = window.GetNewMass();
+	window.EvHandlUpdateMass = function (direction){
+		let updMass = window.UpdateMass(window.InitMass, direction);
+		return window.AddNumbMass(updMass);
+	};	
 	
 })(window);
