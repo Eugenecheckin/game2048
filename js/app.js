@@ -57,6 +57,6 @@ function InitGame(event) {
 		}
 	}	
 }
-let _updatePlates = new UpdatePlates();
+let updatePlates = new UpdatePlates();
 window.addEventListener('load', InitGame);
-window.addEventListener('keydown', _updatePlates);
+window.addEventListener('keydown', updatePlates);

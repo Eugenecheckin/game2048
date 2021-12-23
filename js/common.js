@@ -2,11 +2,11 @@
 	window.GetRandomNxtNumber = function(){
   	var arr = [ 
   	{ 
-			title: "4",
+			title: 4,
     	r: 0.1     	
   	}, 
 		{
-    	title: "2",
+    	title: 2,
     	r: 1 
   	}]; 
   	var rand = Math.random();
@@ -32,7 +32,7 @@
     {
 			for(let k=0;k<4;k++)
     	{
-				arr[i][k]="0";
+				arr[i][k]=0;
 			}
 		}
 		let i = this.GetRandomInt(0,4);
@@ -192,7 +192,7 @@
 			for(let i=0; i<4;i++){
 				for(let k=0; k<4; k++){
 					if(window.InitMass[i][k]!=undefined){
-						sum+=window.InitMass[i][k];
+						sum+=Number(window.InitMass[i][k]);
 					}
 				}
 			}
