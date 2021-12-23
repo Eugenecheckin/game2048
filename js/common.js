@@ -40,20 +40,27 @@
 		arr[i][k]= this.GetRandomNxtNumber();
 		return arr;
 	};
-	window.GetMoveStr = function(arr_str){
+	window.GetMoveStr = function(arr_strб, direction){
 		let preRes = [];
 		arr_str.forEach((element, i, arr) => {
 			if (element!=0){
 			preRes.push(arr[i]);
 			}					
-		})		
-		if (preRes.length==0){return ["0","0","0","0"]}
+		})
+		if (direction==='top'||direction==='right'){
+			preRes.reverse();
+		}
+		if (preRes.length==0){return [0,0,0,0]}
 		preRes.forEach((el,i,arr)=>{
-			if(el==arr[i+1]){
+			if(el===arr[i+1]){
 			arr[i]=el*2;
 			arr[i+1]=0
+			i++;
 			}
 		})
+		if (direction==='top'||direction==='right'){
+			preRes.reverse();
+		}
 		let res = preRes.filter(item=>item>0)
 		while(res.length<4){
 		res.unshift("0");
@@ -73,10 +80,10 @@
 					arr_2.push(arr[i][2]);
 					arr_3.push(arr[i][3]);
 				}
-				let arr_sort_0 = window.GetMoveStr(arr_0);
-				let arr_sort_1 = window.GetMoveStr(arr_1);
-				let arr_sort_2 = window.GetMoveStr(arr_2);
-				let arr_sort_3 = window.GetMoveStr(arr_3);	
+				let arr_sort_0 = window.GetMoveStr(arr_0,'top');
+				let arr_sort_1 = window.GetMoveStr(arr_1,'top');
+				let arr_sort_2 = window.GetMoveStr(arr_2,'top');
+				let arr_sort_3 = window.GetMoveStr(arr_3,'top');	
 				for(let i=0; i<4; i++)
 				{
 					arr[i][0] = arr_sort_0[i];
@@ -97,10 +104,10 @@
 					arr_2.push(arr[i][2]);
 					arr_3.push(arr[i][3]);
 				}
-				let arr_sort_0 = window.GetMoveStr(arr_0);
-				let arr_sort_1 = window.GetMoveStr(arr_1);
-				let arr_sort_2 = window.GetMoveStr(arr_2);
-				let arr_sort_3 = window.GetMoveStr(arr_3);
+				let arr_sort_0 = window.GetMoveStr(arr_0,'bottom');
+				let arr_sort_1 = window.GetMoveStr(arr_1,'bottom');
+				let arr_sort_2 = window.GetMoveStr(arr_2,'bottom');
+				let arr_sort_3 = window.GetMoveStr(arr_3,'bottom');
 				let k = 3;	
 				for(let i=0; i<4; i++)
 				{
@@ -123,10 +130,10 @@
 					arr_2.push(arr[2][i]);
 					arr_3.push(arr[3][i]);
 				}
-				let arr_sort_0 = window.GetMoveStr(arr_0);
-				let arr_sort_1 = window.GetMoveStr(arr_1);
-				let arr_sort_2 = window.GetMoveStr(arr_2);
-				let arr_sort_3 = window.GetMoveStr(arr_3);	
+				let arr_sort_0 = window.GetMoveStr(arr_0,'right');
+				let arr_sort_1 = window.GetMoveStr(arr_1,'right');
+				let arr_sort_2 = window.GetMoveStr(arr_2,'right');
+				let arr_sort_3 = window.GetMoveStr(arr_3,'right');	
 				for(let i=0; i<4; i++)
 				{
 					arr[0][i] = arr_sort_0[i];
@@ -142,15 +149,15 @@
 				let arr_2 =[];
 				let arr_3 =[];
 				for( let i=0; i<4;i++){
-					arr_0.push(arr[0][i]);
+					arr_0.push(arr[0][i]);	
 					arr_1.push(arr[1][i]);
 					arr_2.push(arr[2][i]);
 					arr_3.push(arr[3][i]);
 				}
-				let arr_sort_0 = window.GetMoveStr(arr_0);
-				let arr_sort_1 = window.GetMoveStr(arr_1);
-				let arr_sort_2 = window.GetMoveStr(arr_2);
-				let arr_sort_3 = window.GetMoveStr(arr_3);	
+				let arr_sort_0 = window.GetMoveStr(arr_0,'left');
+				let arr_sort_1 = window.GetMoveStr(arr_1,'left');
+				let arr_sort_2 = window.GetMoveStr(arr_2,'left');
+				let arr_sort_3 = window.GetMoveStr(arr_3,'left');	
 				let k = 3;
 				for(let i=0; i<4; i++)
 				{
@@ -168,12 +175,12 @@
 		let lstIndZero = [];
 		for(let i = 0; i<4; i++){
 			for(let k = 0; k<4; k++){
-				if(arr[i][k]==0){
+				if(arr[i][k]===0){
 					lstIndZero.push(`${i}|${k}`);
 				}
 			}
 		}
-		if (lstIndZero.length==0) return arr;
+		if (lstIndZero.length===0) return arr;
 		let rnd = window.GetRandomInt(0,lstIndZero.length);
 		let newI = lstIndZero[rnd][0];
 		let newK = lstIndZero[rnd][2];
