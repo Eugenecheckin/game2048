@@ -39,8 +39,6 @@
 		arr[i][k]= this.GetRandomNxtNumber();
 		return arr;
 	};
-
-	/*["0","0","1","1","0","1"]*/
 	window.GetMoveStr = function(arr_str){
 		let preRes = [];
 		arr_str.forEach((element, i, arr) => {
@@ -182,11 +180,22 @@
 		return arr;
 
 	};
-
 	window.InitMass = window.GetNewMass();
 	window.EvHandlUpdateMass = function (direction){
 		let updMass = window.UpdateMass(window.InitMass, direction);
 		return window.AddNumbMass(updMass);
-	};	
-	
+	};
+	window.GetScore = function(arr){
+		let sum = 0;
+		if (window.InitMass!=null){
+			for(let i=0; i<4;i++){
+				for(let k=0; k<4; k++){
+					if(window.InitMass[i][k]!=undefined){
+						sum+=window.InitMass[i][k];
+					}
+				}
+			}
+		}
+		return sum;
+	};		
 })(window);

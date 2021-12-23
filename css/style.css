@@ -21,6 +21,7 @@ body{
     max-width: 500px;
     margin: 0 auto;   
 }
+
 div{
   text-align: center;
   font-family: Roboto;
@@ -32,6 +33,11 @@ div{
   background-color: #EEEFF1;
 }
 /*--------------------------------------------------*/
+.score{
+  height: 200px;
+  max-width: 500px;
+  margin: 0 auto; 
+}
 .massive-conteiner{
   margin-top: 200px;
   display: grid;
