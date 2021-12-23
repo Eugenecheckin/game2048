@@ -40,31 +40,43 @@
 		arr[i][k]= this.GetRandomNxtNumber();
 		return arr;
 	};
-	window.GetMoveStr = function(arr_strб, direction){
+	window.GetMoveStr = function(arr_str, direction){
 		let preRes = [];
-		arr_str.forEach((element, i, arr) => {
+		arr_str.forEach((element) => {
 			if (element!=0){
-			preRes.push(arr[i]);
+			preRes.push(element);
 			}					
-		})
-		if (direction==='top'||direction==='right'){
-			preRes.reverse();
-		}
+		})		
 		if (preRes.length==0){return [0,0,0,0]}
-		preRes.forEach((el,i,arr)=>{
-			if(el===arr[i+1]){
-			arr[i]=el*2;
-			arr[i+1]=0
-			i++;
+		if (direction==='bottom'||direction==='left'){
+			for(let i=preRes.length-1; i>=0;i--)
+			{
+				if (preRes[i-1]==undefined){continue;}
+				if(preRes[i]===preRes[i-1]){
+				preRes[i-1]=preRes[i]*2;
+				preRes[i]=0;
+				break;
+				}
 			}
-		})
-		if (direction==='top'||direction==='right'){
-			preRes.reverse();
 		}
-		let res = preRes.filter(item=>item>0)
+		else{
+			preRes.forEach((el,i,arr)=>{
+				if(el===arr[i+1]){
+				arr[i]=el*2;
+				arr[i+1]=0;
+				}
+			})
+		}		
+		let res = preRes.filter(item=>item>0);
+		
 		while(res.length<4){
-		res.unshift("0");
-		}
+			if (direction==='bottom'||direction==='left'){
+				res.push(0);
+			}
+			else{		
+				res.unshift(0);	
+			}				
+		}			
 		return res;
 	};	
 	window.UpdateMass = function (arr,direction) {
@@ -107,15 +119,13 @@
 				let arr_sort_0 = window.GetMoveStr(arr_0,'bottom');
 				let arr_sort_1 = window.GetMoveStr(arr_1,'bottom');
 				let arr_sort_2 = window.GetMoveStr(arr_2,'bottom');
-				let arr_sort_3 = window.GetMoveStr(arr_3,'bottom');
-				let k = 3;	
+				let arr_sort_3 = window.GetMoveStr(arr_3,'bottom');				
 				for(let i=0; i<4; i++)
 				{
-					arr[i][0] = arr_sort_0[k];
-					arr[i][1] = arr_sort_1[k];
-					arr[i][2] = arr_sort_2[k];
-					arr[i][3] = arr_sort_3[k];
-					k--;
+					arr[i][0] = arr_sort_0[i];
+					arr[i][1] = arr_sort_1[i];
+					arr[i][2] = arr_sort_2[i];
+					arr[i][3] = arr_sort_3[i];					
 				}
 				return arr;			
 			}			
@@ -157,15 +167,13 @@
 				let arr_sort_0 = window.GetMoveStr(arr_0,'left');
 				let arr_sort_1 = window.GetMoveStr(arr_1,'left');
 				let arr_sort_2 = window.GetMoveStr(arr_2,'left');
-				let arr_sort_3 = window.GetMoveStr(arr_3,'left');	
-				let k = 3;
+				let arr_sort_3 = window.GetMoveStr(arr_3,'left');					
 				for(let i=0; i<4; i++)
 				{
-					arr[0][i] = arr_sort_0[k];
-					arr[1][i] = arr_sort_1[k];
-					arr[2][i] = arr_sort_2[k];
-					arr[3][i] = arr_sort_3[k];
-					k--;
+					arr[0][i] = arr_sort_0[i];
+					arr[1][i] = arr_sort_1[i];
+					arr[2][i] = arr_sort_2[i];
+					arr[3][i] = arr_sort_3[i];					
 				}
 				return arr;			
 			}
@@ -186,7 +194,6 @@
 		let newK = lstIndZero[rnd][2];
 		arr[newI][newK] = window.GetRandomNxtNumber();
 		return arr;
-
 	};
 	window.InitMass = window.GetNewMass();
 	window.EvHandlUpdateMass = function (direction){

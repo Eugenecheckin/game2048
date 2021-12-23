@@ -21,7 +21,7 @@ class UpdatePlates{
 				}
 			}
 			let elem = window.document.getElementById(`scope_now`);
-			elem.innerHTML = window.GetScore(window.InitMass);
+			/*elem.innerHTML = window.GetScore(window.InitMass);*/
 	}	
 	ArrowUp(){
 		window.InitMass = window.EvHandlUpdateMass('bottom');
