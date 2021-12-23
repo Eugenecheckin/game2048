@@ -5,7 +5,7 @@ class UpdatePlates{
 		this[method](event);
 	}
 	updateFromArr(){
-		if (window.GetNewMass!=null){
+		if (window.InitMass!=null){
 			for(let i=0; i<4;i++){
 				for(let k=0; k<4; k++){
 					if(window.InitMass[i][k]!=undefined){					
@@ -20,8 +20,8 @@ class UpdatePlates{
 					}
 				}
 			}
-			let elem = window.document.getElementById(`score`);
-			elem.innerHTML = window.GetScore();
+			let elem = window.document.getElementById(`scope_now`);
+			elem.innerHTML = window.GetScore(window.InitMass);
 	}	
 	ArrowUp(){
 		window.InitMass = window.EvHandlUpdateMass('bottom');

@@ -2,11 +2,12 @@
 	window.GetRandomNxtNumber = function(){
   	var arr = [ 
   	{ 
+			title: "4",
+    	r: 0.1     	
+  	}, 
+		{
     	title: "2",
-    	r: 0.9 
-  	}, {
-    	title: "4",
-    	r: 0.3 
+    	r: 1 
   	}]; 
   	var rand = Math.random();
   	for (var i = 0; i < arr.length; i++) {
