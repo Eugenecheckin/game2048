@@ -3,10 +3,10 @@
   	var arr = [ 
   	{ 
     	title: "2",
-    	r: 1 
+    	r: 0.9 
   	}, {
     	title: "4",
-    	r: 0.1 
+    	r: 0.3 
   	}]; 
   	var rand = Math.random();
   	for (var i = 0; i < arr.length; i++) {
@@ -178,7 +178,7 @@
 		let rnd = window.GetRandomInt(0,lstIndZero.length);
 		let newI = lstIndZero[rnd][0];
 		let newK = lstIndZero[rnd][2];
-		arr[newI,newK] = window.GetRandomNxtNumber();
+		arr[newI][newK] = window.GetRandomNxtNumber();
 		return arr;
 
 	};
