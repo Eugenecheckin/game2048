@@ -11,7 +11,12 @@ class UpdatePlates{
 				for(let k=0; k<4; k++){
 					if(window.InitMass[i][k]!=undefined){					
 							let elem = window.document.getElementById(`i${i}${k}`); /*window.ElemById("i01");/*`i${i}${k}`);.innerHTML = InitMass[i][k]*/
-							elem.innerHTML = window.InitMass[i][k];
+							if(window.InitMass[i][k]!=0){
+								elem.innerHTML = window.InitMass[i][k];
+							}
+							else{
+								elem.innerHTML = '';
+							}
 						}
 					}
 				}
@@ -24,7 +29,12 @@ class UpdatePlates{
 				for(let k=0; k<4; k++){
 					if(window.InitMass[i][k]!=undefined){					
 							let elem = window.document.getElementById(`i${i}${k}`); /*window.ElemById("i01");/*`i${i}${k}`);.innerHTML = InitMass[i][k]*/
-							elem.innerHTML = window.InitMass[i][k];
+							if(window.InitMass[i][k]!=0){
+								elem.innerHTML = window.InitMass[i][k];
+							}
+							else{
+								elem.innerHTML = '';
+							}
 						}
 					}
 				}
@@ -37,7 +47,12 @@ class UpdatePlates{
 				for(let k=0; k<4; k++){
 					if(window.InitMass[i][k]!=undefined){					
 							let elem = window.document.getElementById(`i${i}${k}`); /*window.ElemById("i01");/*`i${i}${k}`);.innerHTML = InitMass[i][k]*/
-							elem.innerHTML = window.InitMass[i][k];
+							if(window.InitMass[i][k]!=0){
+								elem.innerHTML = window.InitMass[i][k];
+							}
+							else{
+								elem.innerHTML = '';
+							}	
 						}
 					}
 				}
@@ -50,7 +65,12 @@ class UpdatePlates{
 				for(let k=0; k<4; k++){
 					if(window.InitMass[i][k]!=undefined){					
 							let elem = window.document.getElementById(`i${i}${k}`); /*window.ElemById("i01");/*`i${i}${k}`);.innerHTML = InitMass[i][k]*/
-							elem.innerHTML = window.InitMass[i][k];
+							if(window.InitMass[i][k]!=0){
+								elem.innerHTML = window.InitMass[i][k];
+							}
+							else{
+								elem.innerHTML = '';
+							}
 						}
 					}
 				}
@@ -63,7 +83,12 @@ function InitGame(event) {
 		for(let k=0; k<4; k++){
 			if(window.InitMass[i][k]!=undefined){					
 					let elem = window.document.getElementById(`i${i}${k}`); /*window.ElemById("i01");/*`i${i}${k}`);.innerHTML = InitMass[i][k]*/
-					elem.innerHTML = window.InitMass[i][k];
+					if(window.InitMass[i][k]!=0){
+						elem.innerHTML = window.InitMass[i][k];
+					}
+					else{
+						elem.innerHTML = '';
+					}
 				}
 			}
 		}
