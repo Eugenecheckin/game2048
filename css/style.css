@@ -1,15 +1,15 @@
-html{
+html {
   box-sizing: border-box;
 }
 *, *::after, *::before {
-    box-sizing: inherit;   
+  box-sizing: inherit;   
 }
-.wrapper{
+.wrapper {
   max-width: 500px;
   margin: 0 auto;   
   margin-top: 30px;
 }
-html, body{ 
+html, body { 
   margin: 0;
   padding: 0;
   background: #faf8ef;
@@ -30,7 +30,7 @@ h1.title {
   display: block;
   float: left;
 }
-h1{
+h1 {
   margin-block-start: 0.67em;
   margin-block-end: 0.67em;
   margin-inline-start: 0px;
@@ -72,7 +72,7 @@ h1{
   content: "Best";
 }
 /*--------------------game------------------*/
-.game-container{  
+.game-container {  
   margin-top: 40px;
   position: relative;
   padding: 15px;
@@ -81,9 +81,8 @@ h1{
   border-radius: 6px;
   width: 500px;
   height: 500px;
-
 }
-.massive-conteiner{
+.massive-conteiner {
   position: absolute;
   z-index: 1;
   display: grid;
@@ -91,7 +90,7 @@ h1{
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 2px;
 }
-.massive-row{  
+.massive-row {  
   text-align: center;
   width: 117px;
   height: 117px;
