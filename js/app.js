@@ -1,18 +1,24 @@
-window.GetNewMass();
+import {GetNewMass} from `./common.js`;
+import {GetScore} from `./common.js`;
+import {EvHandlUpdateMass} from `./common.js`;
+import {InitMass} from `./common.js`
+
+
+GetNewMass();
 
 class UpdatePlates {
   handleEvent(event) {
-    let method = event.code;
+    let method = event.code.toLowerCase();
     this[method](event);
   }
   updateFromArr() {
-    if (window.InitMass != null) {
+    if (InitMass != null) {
       for (let i = 0; i < 4; i++) {
         for (let k = 0; k < 4; k++) {
-          if (window.InitMass[i][k] != undefined) {					
+          if (InitMass[i][k] != undefined) {					
             let elem = window.document.getElementById(`i${i}${k}`); 
-            if (window.InitMass[i][k] != 0) {
-              elem.innerHTML = window.InitMass[i][k];
+            if (InitMass[i][k] != 0) {
+              elem.innerHTML = InitMass[i][k];
               elem.style.background = 'rgb(238, 228, 218)';
               }	else {
                 elem.innerHTML = '';
@@ -23,34 +29,34 @@ class UpdatePlates {
         }
       }
       let elem = window.document.getElementById(`scope_now`);
-      elem.innerHTML = window.GetScore(window.InitMass);
+      elem.innerHTML = GetScore(InitMass);
   }
-  ArrowUp() {
-    window.InitMass = window.EvHandlUpdateMass('bottom');
+  arrowup() {
+    InitMass = EvHandlUpdateMass('bottom');
     this.updateFromArr();	
   }
-  ArrowDown() {
-    window.InitMass = window.EvHandlUpdateMass('top');		
+  arrowdown() {
+    InitMass = EvHandlUpdateMass('top');		
     this.updateFromArr();	
   }
-  ArrowRight() {
-    window.InitMass = window.EvHandlUpdateMass('right');
+  arrowright() {
+    InitMass = EvHandlUpdateMass('right');
     this.updateFromArr();	
   }
-  ArrowLeft() {
-    window.InitMass = window.EvHandlUpdateMass('left');
+  arrowleft() {
+    InitMass = EvHandlUpdateMass('left');
     this.updateFromArr();	
   }
 }
 
 function InitGame(event) {
-  if (window.InitMass != null) {
+  if (InitMass != null) {
   for(let i = 0; i < 4; i++) {
     for(let k = 0; k < 4; k++) {
-      if(window.InitMass[i][k] != undefined) {					
+      if(InitMass[i][k] != undefined) {					
         let elem = window.document.getElementById(`i${i}${k}`);
-        if(window.InitMass[i][k] != 0) {
-          elem.innerHTML = window.InitMass[i][k];
+        if(InitMass[i][k] != 0) {
+          elem.innerHTML = InitMass[i][k];
           elem.style.background = 'rgb(238, 228, 218)';
         } else {
           elem.innerHTML = '';
@@ -61,7 +67,7 @@ function InitGame(event) {
   }
 }
   let elem = window.document.getElementById(`scope_now`);
-  elem.innerHTML = window.GetScore(window.InitMass);	
+  elem.innerHTML = GetScore(InitMass);	
 }
 
 let updatePlates = new UpdatePlates();

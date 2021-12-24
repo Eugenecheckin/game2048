@@ -1,5 +1,4 @@
-(function(window) {	
-  window.GetRandomNxtNumber = function() {
+  export function GetRandomNxtNumber() {
     let arr = [ 
     { 
       title: 4,
@@ -15,13 +14,13 @@
         return arr[i].title;
       }
     }
-  };
-  window.GetRandomInt = function(min, max) {
+  }
+  export function GetRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min; 
-  };
-  window.GetNewMass = function() {	
+  }
+  export function GetNewMass() {	
     let arr = new Array(4);
 
     for(let i = 0; i < 4; i++) {
@@ -41,8 +40,8 @@
     let k = this.GetRandomInt(0,4);
     arr[i][k] = this.GetRandomNxtNumber();
     return arr;
-  };
-  window.GetMoveStr = function(arr_str, direction) {
+  }
+  export function GetMoveStr(arr_str, direction) {
     let preRes = [];
     arr_str.forEach((element) => {
       if (element != 0) {
@@ -84,8 +83,8 @@
       }				
     }			
     return res;
-  };	
-  window.UpdateMass = function (arr, direction) {
+  }	
+  export function UpdateMass(arr, direction) {
     switch(direction) {
       case "top" : {
         let arr_0 = [];
@@ -100,10 +99,10 @@
           arr_3.push(arr[i][3]);
         }
 				
-        let arr_sort_0 = window.GetMoveStr(arr_0, 'top');
-        let arr_sort_1 = window.GetMoveStr(arr_1, 'top');
-        let arr_sort_2 = window.GetMoveStr(arr_2, 'top');
-        let arr_sort_3 = window.GetMoveStr(arr_3, 'top');	
+        let arr_sort_0 = GetMoveStr(arr_0, 'top');
+        let arr_sort_1 = GetMoveStr(arr_1, 'top');
+        let arr_sort_2 = GetMoveStr(arr_2, 'top');
+        let arr_sort_3 = GetMoveStr(arr_3, 'top');	
 				
         for(let i = 0; i < 4; i++) {
           arr[i][0] = arr_sort_0[i];
@@ -126,10 +125,10 @@
           arr_3.push(arr[i][3]);
         }
 				
-        let arr_sort_0 = window.GetMoveStr(arr_0, 'bottom');
-        let arr_sort_1 = window.GetMoveStr(arr_1, 'bottom');
-        let arr_sort_2 = window.GetMoveStr(arr_2, 'bottom');
-        let arr_sort_3 = window.GetMoveStr(arr_3, 'bottom');				
+        let arr_sort_0 = GetMoveStr(arr_0, 'bottom');
+        let arr_sort_1 = GetMoveStr(arr_1, 'bottom');
+        let arr_sort_2 = GetMoveStr(arr_2, 'bottom');
+        let arr_sort_3 = GetMoveStr(arr_3, 'bottom');				
 				
         for(let i = 0; i < 4; i++) {
           arr[i][0] = arr_sort_0[i];
@@ -150,10 +149,10 @@
           arr_2.push(arr[2][i]);
           arr_3.push(arr[3][i]);
         }
-        let arr_sort_0 = window.GetMoveStr(arr_0, 'right');
-        let arr_sort_1 = window.GetMoveStr(arr_1, 'right');
-        let arr_sort_2 = window.GetMoveStr(arr_2, 'right');
-        let arr_sort_3 = window.GetMoveStr(arr_3, 'right');	
+        let arr_sort_0 = GetMoveStr(arr_0, 'right');
+        let arr_sort_1 = GetMoveStr(arr_1, 'right');
+        let arr_sort_2 = GetMoveStr(arr_2, 'right');
+        let arr_sort_3 = GetMoveStr(arr_3, 'right');	
         for(let i = 0; i < 4; i++) {
           arr[0][i] = arr_sort_0[i];
           arr[1][i] = arr_sort_1[i];
@@ -173,10 +172,10 @@
           arr_2.push(arr[2][i]);
           arr_3.push(arr[3][i]);
         }
-        let arr_sort_0 = window.GetMoveStr(arr_0, 'left');
-        let arr_sort_1 = window.GetMoveStr(arr_1, 'left');
-        let arr_sort_2 = window.GetMoveStr(arr_2, 'left');
-        let arr_sort_3 = window.GetMoveStr(arr_3, 'left');					
+        let arr_sort_0 = GetMoveStr(arr_0, 'left');
+        let arr_sort_1 = GetMoveStr(arr_1, 'left');
+        let arr_sort_2 = GetMoveStr(arr_2, 'left');
+        let arr_sort_3 = GetMoveStr(arr_3, 'left');					
         for(let i = 0; i < 4; i++)
         {
           arr[0][i] = arr_sort_0[i];
@@ -188,8 +187,8 @@
       }
       default: return arr;
     }		
-  };
-  window.AddNumbMass = function (arr) {
+  }
+  export function AddNumbMass(arr) {
     let lstIndZero = [];
     for(let i = 0; i < 4; i++) {
       for(let k = 0; k < 4; k++) {
@@ -199,28 +198,28 @@
       }
     }
     if (lstIndZero.length === 0) return arr;
-    let rnd = window.GetRandomInt(0, lstIndZero.length);
+    let rnd = GetRandomInt(0, lstIndZero.length);
     let newI = lstIndZero[rnd][0];
     let newK = lstIndZero[rnd][2];
-    arr[newI][newK] = window.GetRandomNxtNumber();
+    arr[newI][newK] = GetRandomNxtNumber();
     return arr;
-  };
-  window.InitMass = window.GetNewMass();
-  window.EvHandlUpdateMass = function (direction) {
-    let updMass = window.UpdateMass(window.InitMass, direction);
-    return window.AddNumbMass(updMass);
-  };
-  window.GetScore = function(arr) {
+  }
+  export let InitMass = GetNewMass();
+  export function EvHandlUpdateMass(direction) {
+    let updMass = UpdateMass(InitMass, direction);
+    return AddNumbMass(updMass);
+  }
+  export function GetScore(arr) {
     let sum = 0;
-    if (window.InitMass != null) {
+    if (InitMass != null) {
       for(let i = 0; i < 4; i++) {
         for(let k=0; k<4; k++) {
-          if(window.InitMass[i][k] != undefined){
-            sum+= Number(window.InitMass[i][k]);
+          if(InitMass[i][k] != undefined){
+            sum+= Number(InitMass[i][k]);
           }
         }
       }
     }
     return sum;
-  };		
-})(window);
+  }		
+
