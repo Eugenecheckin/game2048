@@ -12,16 +12,18 @@ class UpdatePlates{
 							let elem = window.document.getElementById(`i${i}${k}`); 
 							if(window.InitMass[i][k]!=0){
 								elem.innerHTML = window.InitMass[i][k];
+								elem.style.background='rgb(238, 228, 218)';
 							}
 							else{
 								elem.innerHTML = '';
+								elem.style.background='rgb(205, 190, 180)';
 							}
 						}
 					}
 				}
 			}
 			let elem = window.document.getElementById(`scope_now`);
-			/*elem.innerHTML = window.GetScore(window.InitMass);*/
+			elem.innerHTML = window.GetScore(window.InitMass);
 	}	
 	ArrowUp(){
 		window.InitMass = window.EvHandlUpdateMass('bottom');
@@ -48,14 +50,19 @@ function InitGame(event) {
 					let elem = window.document.getElementById(`i${i}${k}`);
 					if(window.InitMass[i][k]!=0){
 						elem.innerHTML = window.InitMass[i][k];
-					}
+						elem.style.background='rgb(238, 228, 218)';
+					}					
 					else{
 						elem.innerHTML = '';
+						elem.style.background='rgb(205, 190, 180)';
+
 					}
 				}
 			}
 		}
-	}	
+	}
+	let elem = window.document.getElementById(`scope_now`);
+	elem.innerHTML = window.GetScore(window.InitMass);	
 }
 let updatePlates = new UpdatePlates();
 window.addEventListener('load', InitGame);

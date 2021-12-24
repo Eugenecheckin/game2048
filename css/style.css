@@ -1,56 +1,100 @@
-
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 html{
   box-sizing: border-box;
 }
 *, *::after, *::before {
     box-sizing: inherit;   
 }
-body{
-  
-  font-family: Roboto;
-  font-style: normal;
-  font-size: 16px;
-  color: black;
-  font-weight: normal;
-  line-height: 26px;
-  background-color: #EEEFF1;
-  ;
-}
 .wrapper{
-    max-width: 500px;
-    margin: 0 auto;   
-}
-
-div{
-  text-align: center;
-  font-family: Roboto;
-  font-style: normal;
-  font-size: 26px;
-  color: black;
-  font-weight: normal;
-  line-height: 26px;
-  background-color: #EEEFF1;
-}
-/*--------------------------------------------------*/
-.score{
-  height: 200px;
   max-width: 500px;
-  margin: 0 auto; 
+  margin: 0 auto;   
+  margin-top: 30px;
+}
+html, body{ 
+  margin: 0;
+  padding: 0;
+  background: #faf8ef;
+  color: #776e65;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;  
+}
+/*-------------heading----------------*/
+.heading:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+h1.title {
+  font-size: 80px;
+  font-weight: bold;
+  margin: 0;
+  display: block;
+  float: left;
+}
+h1{
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.scores-container {
+  float: right;
+  display: flex;
+}
+.score__now, .score__best {
+  position: relative;
+  display: block;
+  background: #bbada0;
+  padding: 35px 35px;
+  font-size: 25px;
+  height: 45px;
+  line-height: 47px;
+  font-weight: bold;
+  border-radius: 3px;
+  color: white;
+  margin-top: 8px;
+  text-align: center;
+}
+.score__now:after, .score__best:after {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  left: 0;
+  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 13px;
+  text-align: center;
+  color: #eee4da;
+}
+.score__now:after {
+  content: "Score";
+}
+.score__best:after {
+  content: "Best";
+}
+/*--------------------game------------------*/
+.game-container{  
+  margin-top: 40px;
+  position: relative;
+  padding: 15px;
+  cursor: default;
+  background: #bbada0;
+  border-radius: 6px;
+  width: 500px;
+  height: 500px;
+
 }
 .massive-conteiner{
-  margin-top: 200px;
+  position: absolute;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  grid-gap: 5px;
+  grid-gap: 2px;
 }
-.massive-row__full{
+.massive-row{  
   text-align: center;
-  background-color: #776e65;
-  max-width: 110px;
-  min-height: 110px;
-  width: 110px;
-  height: 110px;
-  border: 1px solid cornsilk;
+  width: 117px;
+  height: 117px;
+  background: #bbada0;
+  font-size: 48px;
 }

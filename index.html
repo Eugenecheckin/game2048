@@ -7,70 +7,35 @@
   <link rel="stylesheet" href="css/style.css"/>
 </head>  
 <body>
-  <section class="head">
-    <div class="wrapper">    
-      <h1 class="title">2048</h1>
-      <div class="scores">
-        <div class="scores-container">
-          <div class="score-now" id="scope_now"></div>        
-          <div class="score-best"></div>
-        </div>
+  <div class="wrapper">
+    <div class="heading">
+      <h1 class="title">2048</h1>      
+      <div class="scores-container">
+        <div class="score__now" id="scope_now"></div>                
+        <div class="score__best">0</div>
+      </div>      
+    </div>   
+    <div class="game-container">
+      <div class="massive-conteiner">     
+        <div class="massive-row" id="i00"></div>
+        <div class="massive-row" id="i01"></div>
+        <div class="massive-row" id="i02"></div>
+        <div class="massive-row" id="i03"></div>
+        <div class="massive-row" id="i10"></div>
+        <div class="massive-row" id="i11"></div>
+        <div class="massive-row" id="i12"></div>
+        <div class="massive-row" id="i13"></div>
+        <div class="massive-row" id="i20"></div>
+        <div class="massive-row" id="i21"></div>
+        <div class="massive-row" id="i22"></div>
+        <div class="massive-row" id="i23"></div>
+        <div class="massive-row" id="i30"></div>
+        <div class="massive-row" id="i31"></div>
+        <div class="massive-row" id="i32"></div>
+        <div class="massive-row" id="i33"></div>
       </div>
-    </div>  
-  </section>
-  <section class="game"></section>
-    <div class="wrapper">
-      <div class="massive-conteiner">
-        <div class="massive__row">          
-          <div class="massive-row__full" id="i00"></div>
-        </div>
-        <div class="massive__row">          
-          <div class="massive-row__full" id="i01"></div>
-        </div>
-        <div class="massive__row">          
-          <div class="massive-row__full" id="i02"></div>
-        </div>
-        <div class="massive__row">          
-          <div class="massive-row__full" id="i03"></div>
-        </div>
-        <div class="massive__row">          
-          <div class="massive-row__full" id="i10"></div>
-        </div>
-        <div class="massive__row">          
-          <div class="massive-row__full" id="i11"></div>
-        </div>
-        <div class="massive__row">          
-          <div class="massive-row__full" id="i12"></div>
-        </div>
-        <div class="massive__row">          
-          <div class="massive-row__full" id="i13"></div>
-        </div>
-        <div class="massive__row">
-          <div class="massive-row__full" id="i20"></div>
-        </div>
-        <div class="massive__row">
-          <div class="massive-row__full" id="i21"></div>
-        </div>
-        <div class="massive__row">
-          <div class="massive-row__full" id="i22"></div>
-        </div>
-        <div class="massive__row">
-          <div class="massive-row__full" id="i23"></div>
-        </div>
-        <div class="massive__row">
-          <div class="massive-row__full" id="i30"></div>
-        </div>
-        <div class="massive__row">
-          <div class="massive-row__full" id="i31"></div>
-        </div>
-        <div class="massive__row">
-          <div class="massive-row__full" id="i32"></div>
-        </div>
-        <div class="massive__row">
-          <div class="massive-row__full" id="i33"></div>
-        </div>
-      </div>
-    </div>
+    </div> 
+  </div>  
   <script src="js/common.js"></script>
   <script src="js/app.js"></script>
 </body>
