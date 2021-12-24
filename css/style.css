@@ -94,8 +94,10 @@ h1 {
 }
 .massive-row {  
   text-align: center;
+  padding-top: 35px;
   width: 117px;
   height: 117px;
   background: #bbada0;
   font-size: 48px;
+  font-weight: bold;
 }

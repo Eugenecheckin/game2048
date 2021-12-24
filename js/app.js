@@ -87,7 +87,7 @@ function GetMoveStr(arr_str, direction) {
 		}				
 	}			
 	return res;
-}	
+}
 
 function UpdateMass(arr, direction) {
 	switch(direction) {
@@ -229,7 +229,17 @@ function GetScore() {
 		}
 	}
 	return sum;
-}		
+}
+
+let PlateStyle = [ 
+	{ numb: 2, bColor: 'rgb(238, 228, 218)' },
+	{ numb: 4, bColor: 'rgb(238, 225, 201)' },
+	{ numb: 8, bColor: 'rgb(243, 178, 122)' },
+	{ numb: 16, bColor: 'rgb(246, 150, 100)' },
+	{ numb: 32, bColor: 'rgb(247, 124, 95)' },
+	{ numb: 64, bColor: 'rgb(247, 95, 59)' },
+	{ numb: 128, bColor: 'rgb(237, 208, 115)' },    
+];
 
 class UpdatePlates {
   handleEvent(event) {
@@ -244,7 +254,13 @@ class UpdatePlates {
             let elem = window.document.getElementById(`i${i}${k}`); 
             if (InitMass[i][k] != 0) {
               elem.innerHTML = InitMass[i][k];
-              elem.style.background = 'rgb(238, 228, 218)';
+							let findCollor = InitMass[i][k];
+							let colorPL = PlateStyle.find(i => i.numb == findCollor);
+							if (colorPL != undefined) {
+								elem.style.background = colorPL.bColor;
+							  } else {
+                  elem.style.background = 'rgb(238, 228, 218)';
+							  }               
               }	else {
                 elem.innerHTML = '';
                 elem.style.background = 'rgb(205, 190, 180)';
